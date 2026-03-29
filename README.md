@@ -1,9 +1,10 @@
-PKPL Tugas Kelompok 2
+# Mie Ayam Bakso - TK 2
 
-Kelompok : Mie Ayam Bakso
-Ketua   : Naufal Zafran Fadil (2406402542)
-Anggota :
-    1. Adzradevany Aqiila 	2406410121
-    2. Mei Ching		    2406361662
-    3. Nita Pasaribu		2406436890
-    4. Rivaldy Putra Rivly 	2406351453
+<h3>Anggota 👤</h3>
+<hr>
+
+- Adzradevany Aqiila 	2406410121
+- Mei Ching		        2406361662
+- Naufal Zafran Fadil   2406402542
+- Nita Pasaribu		    2406436890
+- Rivaldy Putra Rivly 	2406351453

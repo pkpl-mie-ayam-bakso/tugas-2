@@ -6,4 +6,3 @@ requests
 PyJWT
 cryptography
 django-ratelimit
-django-csp

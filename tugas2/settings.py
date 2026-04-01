@@ -65,6 +65,8 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.google',
     # Local
     'main',
+    'django_ratelimit',
+    'csp',
 ]
 
 MIDDLEWARE = [
@@ -76,6 +78,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'allauth.account.middleware.AccountMiddleware',
+    'csp.middleware.CSPMiddleware',
 ]
 
 ROOT_URLCONF = 'tugas2.urls'
@@ -139,7 +142,7 @@ LOGOUT_REDIRECT_URL = '/'
 ACCOUNT_EMAIL_VERIFICATION = 'none'
 SOCIALACCOUNT_LOGIN_ON_GET = True
 
-# ── Daftar email anggota kelompok ──────────────────────────────────────────
+# ── Daftar email anggota kelompok ──
 ALLOWED_MEMBER_EMAILS = os.getenv(
     'ALLOWED_MEMBER_EMAILS',
     'anggota1@gmail.com'

@@ -6,11 +6,49 @@ load_dotenv()
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = os.getenv('SECRET_KEY', 'django-insecure-ganti-ini')
+# SECURE: Require explicit SECRET_KEY
+SECRET_KEY = os.getenv('SECRET_KEY')
+if not SECRET_KEY:
+    raise ValueError(
+        'CRITICAL: SECRET_KEY environment variable not set. '
+        'Generate with: python -c "from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())"'
+    )
 
-DEBUG = True
+# SECURE: Default to False for safety
+DEBUG = os.getenv('DEBUG', 'False').lower() in ('true', '1', 'yes')
 
-ALLOWED_HOSTS = ['*']
+# SECURE: Whitelist approach, not wildcard
+ALLOWED_HOSTS_ENV = os.getenv('ALLOWED_HOSTS', '').strip()
+if ALLOWED_HOSTS_ENV:
+    ALLOWED_HOSTS = [h.strip() for h in ALLOWED_HOSTS_ENV.split(',') if h.strip()]
+else:
+    if not DEBUG:
+        raise ValueError(
+            'ALLOWED_HOSTS environment variable required for production. '
+            'Format: ALLOWED_HOSTS=example.com,www.example.com'
+        )
+    ALLOWED_HOSTS = ['localhost', '127.0.0.1', '*']  # Allow all for local dev if DEBUG is True
+
+# ── SECURITY SETTINGS (PRODUCTION) ──────────────────────────────────────────
+if not DEBUG:
+    # Cookies & Session Security
+    SESSION_COOKIE_SECURE = True
+    CSRF_COOKIE_SECURE = True
+    SECURE_BROWSER_XSS_FILTER = True
+    SECURE_CONTENT_TYPE_NOSNIFF = True
+
+    # SSL Redirection
+    # Set this to False in your .env if testing production settings locally
+    SECURE_SSL_REDIRECT = os.getenv('SECURE_SSL_REDIRECT', 'True') == 'True'
+    
+    # HSTS (Strict Transport Security)
+    # Start with 3600 (1 hour) then increase to 31536000 (1 year) after testing
+    SECURE_HSTS_SECONDS = 3600
+    SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+    SECURE_HSTS_PRELOAD = True
+
+    # Proxy trust (Important for Heroku/Railway/GCP)
+    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -106,3 +144,24 @@ ALLOWED_MEMBER_EMAILS = os.getenv(
     'ALLOWED_MEMBER_EMAILS',
     'anggota1@gmail.com'
 ).split(',')
+
+# Security Headers
+SECURE_CONTENT_SECURITY_POLICY = {
+    'default-src': ("'self'",),
+    'script-src': (
+        "'self'",
+        "https://fonts.googleapis.com",
+        "https://fonts.gstatic.com",
+    ),
+    'style-src': (
+        "'self'",
+        "https://fonts.googleapis.com",
+        "https://fonts.gstatic.com",
+    ),
+    'img-src': ("'self'", "data:", "https:"),
+    'font-src': ("'self'", "https://fonts.gstatic.com"),
+    'connect-src': ("'self'", "https://accounts.google.com"),
+    'frame-ancestors': ("'none'",),
+    'base-uri': ("'self'",),
+    'form-action': ("'self'", "https://accounts.google.com"),
+}

@@ -5,3 +5,4 @@ Pillow
 requests
 PyJWT
 cryptography
+django-ratelimit

@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
+from django.http import HttpResponseForbidden
 from django_ratelimit.decorators import ratelimit
 from .models import SiteSettings
 from .forms import SiteSettingsForm
@@ -27,7 +28,7 @@ def customize(request):
     if not request.user.is_authenticated:
         log_audit_event('FAILED_AUTH', request, success=False)
         messages.error(request, 'Kamu harus login terlebih dahulu.')
-        return redirect('/')
+        return HttpResponseForbidden('Akses ditolak. Silakan login untuk melanjutkan.')
 
     # AUTHORIZATION CHECK
     if not _is_group_member(request):
@@ -41,7 +42,7 @@ def customize(request):
             request,
             'Akses ditolak. Hanya anggota kelompok yang dapat mengubah tampilan.'
         )
-        return redirect('/')
+        return HttpResponseForbidden('Akses ditolak. Silakan login untuk melanjutkan.')
 
     site_cfg = SiteSettings.get_settings()
 

@@ -249,7 +249,7 @@
     <div class="auth-notice">
       Login dengan akun Google anggota kelompok untuk mengubah tampilan.
     </div>
-    <a href="{% url 'socialaccount_signup' %}" class="btn btn-google">
+    <a href="{% url 'google_login' %}" class="btn btn-google">
       <svg viewBox="0 0 24 24" width="18" height="18">
         <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
         <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
@@ -261,139 +261,53 @@
   {% endif %}
 </section>
 
-<!-- INFO KELOMPOK -->
-<!-- <section style="margin-bottom:2.5rem;">
-  <h2 class="section-title">📋 Info Kelompok</h2>
-  <div class="info-grid">
-    <div class="info-item">
-      <div class="info-label">Nama Kelompok</div>
-      <div class="info-value">Kelompok 01</div>
-    </div>
-    <div class="info-item">
-      <div class="info-label">Mata Kuliah</div>
-      <div class="info-value">Pengantar Keamanan Perangkat Lunak</div>
-    </div>
-    <div class="info-item">
-      <div class="info-label">Semester</div>
-      <div class="info-value">Genap 2025/2026</div>
-    </div>
-    <div class="info-item">
-      <div class="info-label">Topik</div>
-      <div class="info-value">Authentication &amp; Authorization</div>
-    </div>
-  </div>
-</section> -->
-
 <!-- ANGGOTA -->
 <section style="margin-bottom:2.5rem;">
   <h2 class="section-title">Anggota Kelompok</h2>
   <div class="members-grid">
 
     <div class="member-card">
+      <div class="member-avatar">Z</div>
+      <div class="member-name">Naufal Zafran Fadil</div>
+      <div class="member-npm">2406402542</div>
+      <span class="member-role role-ketua">Ketua</span>
+      <!-- <p class="member-desc">Deskripsi / kontribusi anggota.</p> -->
+    </div>
+
+    <div class="member-card">
       <div class="member-avatar">A</div>
-      <div class="member-name">Nama Anggota 1</div>
-      <div class="member-npm">2106XXXXXXX</div>
-      <span class="member-role role-ketua">👑 Ketua</span>
-      <p class="member-desc">Deskripsi / kontribusi anggota.</p>
+      <div class="member-name">Adzradevany Aqiila</div>
+      <div class="member-npm">2406410121</div>
+      <span class="member-role role-anggota">Anggota</span>
+      <!-- <p class="member-desc">Deskripsi / kontribusi anggota.</p> -->
     </div>
 
     <div class="member-card">
-      <div class="member-avatar">B</div>
-      <div class="member-name">Nama Anggota 2</div>
-      <div class="member-npm">2106XXXXXXX</div>
+      <div class="member-avatar">R</div>
+      <div class="member-name">Rivaldy Putra Rivly</div>
+      <div class="member-npm">2406351453</div>
       <span class="member-role role-anggota">Anggota</span>
-      <p class="member-desc">Deskripsi / kontribusi anggota.</p>
+      <!-- <p class="member-desc">Deskripsi / kontribusi anggota.</p> -->
     </div>
 
     <div class="member-card">
-      <div class="member-avatar">C</div>
-      <div class="member-name">Nama Anggota 3</div>
-      <div class="member-npm">2106XXXXXXX</div>
+      <div class="member-avatar">M</div>
+      <div class="member-name">Mei Ching</div>
+      <div class="member-npm">2406361662</div>
       <span class="member-role role-anggota">Anggota</span>
-      <p class="member-desc">Deskripsi / kontribusi anggota.</p>
+      <!-- <p class="member-desc">Deskripsi / kontribusi anggota.</p> -->
     </div>
 
     <div class="member-card">
-      <div class="member-avatar">D</div>
-      <div class="member-name">Nama Anggota 4</div>
-      <div class="member-npm">2106XXXXXXX</div>
+      <div class="member-avatar">N</div>
+      <div class="member-name">Nita Pasaribu</div>
+      <div class="member-npm">2406436890</div>
       <span class="member-role role-anggota">Anggota</span>
-      <p class="member-desc">Deskripsi / kontribusi anggota.</p>
-    </div>
-
-    <div class="member-card">
-      <div class="member-avatar">E</div>
-      <div class="member-name">Nama Anggota 5</div>
-      <div class="member-npm">2106XXXXXXX</div>
-      <span class="member-role role-anggota">Anggota</span>
-      <p class="member-desc">Deskripsi / kontribusi anggota.</p>
+      <!-- <p class="member-desc">Deskripsi / kontribusi anggota.</p> -->
     </div>
 
   </div>
 </section>
-
-<!-- TECH STACK -->
-<!-- <section style="margin-bottom:2.5rem;">
-  <h2 class="section-title">🛠️ Tech Stack</h2>
-  <div class="tech-grid">
-    <div class="tech-chip">🐍 Python 3.12</div>
-    <div class="tech-chip">🟩 Django 4.2+</div>
-    <div class="tech-chip">🔐 OAuth 2.0</div>
-    <div class="tech-chip">🔵 Google Identity</div>
-    <div class="tech-chip">📦 django-allauth</div>
-    <div class="tech-chip">🗄️ SQLite</div>
-    <div class="tech-chip">🎨 Pure CSS</div>
-  </div>
-</section> -->
-
-<!-- ALUR OAUTH -->
-<!-- <section style="margin-bottom:2.5rem;">
-  <h2 class="section-title">🔄 Alur OAuth 2.0</h2>
-  <div class="flow-steps">
-    <div class="flow-step">
-      <div class="step-number">1</div>
-      <div class="step-content">
-        <h4>User Klik "Login dengan Google"</h4>
-        <p>Browser diarahkan ke endpoint <code>/accounts/google/login/</code> milik django-allauth.</p>
-      </div>
-    </div>
-    <div class="flow-step">
-      <div class="step-number">2</div>
-      <div class="step-content">
-        <h4>Redirect ke Google Authorization Server</h4>
-        <p>Allauth membangun URL dengan <code>client_id</code>, <code>scope</code>, dan <code>redirect_uri</code>, lalu redirect ke Google.</p>
-      </div>
-    </div>
-    <div class="flow-step">
-      <div class="step-number">3</div>
-      <div class="step-content">
-        <h4>User Memberi Izin di Google</h4>
-        <p>Google menampilkan halaman consent. Jika disetujui, Google mengirim <code>authorization_code</code> ke server.</p>
-      </div>
-    </div>
-    <div class="flow-step">
-      <div class="step-number">4</div>
-      <div class="step-content">
-        <h4>Server Tukar Code → Access Token</h4>
-        <p>Django menukar <code>code</code> dengan <code>access_token</code> menggunakan <code>client_secret</code> (server-side, aman).</p>
-      </div>
-    </div>
-    <div class="flow-step">
-      <div class="step-number">5</div>
-      <div class="step-content">
-        <h4>Verifikasi Identitas &amp; Buat Sesi</h4>
-        <p>Allauth mengambil profil dari Google API, membuat/login akun Django, lalu membuat session cookie.</p>
-      </div>
-    </div>
-    <div class="flow-step">
-      <div class="step-number">6</div>
-      <div class="step-content">
-        <h4>Otorisasi Berbasis Email</h4>
-        <p>Server cek apakah <code>user.email</code> ada di <code>ALLOWED_MEMBER_EMAILS</code>. Jika ya → bisa kustomisasi. Jika tidak → hanya bisa melihat.</p>
-      </div>
-    </div>
-  </div>
-</section> -->
 
 <!-- CTA -->
 {% if not user.is_authenticated %}

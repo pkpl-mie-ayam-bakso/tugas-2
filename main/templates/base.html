@@ -53,7 +53,7 @@
       box-shadow:    var(--shadow-sm);
     }
     .nav-inner {
-      max-width:      1100px;
+      /* max-width:      1100px; */
       margin:         auto;
       display:        flex;
       align-items:    center;
@@ -203,7 +203,7 @@
     /* ── LAYOUT ── */
     .main-content {
       flex:       1;
-      max-width:  1100px;
+      /* max-width:  1100px; */
       width:      100%;
       margin:     2.5rem auto;
       padding:    0 2rem;
@@ -233,15 +233,14 @@
 <nav class="navbar">
   <div class="nav-inner">
     <a href="/" class="nav-brand">
-      <div class="brand-icon">🔐</div>
-      Kelompok Tugas 2
+      Mie Ayam Bakso
     </a>
     <ul class="nav-links">
-      <li><a href="/">🏠 Beranda</a></li>
+      <li><a href="/">Home</a></li>
 
       {% if user.is_authenticated %}
         {% if is_member %}
-          <li><a href="{% url 'customize' %}">🎨 Kustomisasi</a></li>
+          <li><a href="{% url 'customize' %}">Kustomisasi</a></li>
         {% endif %}
         <li>
           <div class="user-badge">
@@ -251,7 +250,7 @@
           </div>
         </li>
         <li>
-          <a href="{% url 'account_logout' %}" class="btn btn-danger">🚪 Logout</a>
+          <a href="{% url 'account_logout' %}" class="btn btn-danger">Logout</a>
         </li>
       {% else %}
         <li>
@@ -262,7 +261,7 @@
               <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
               <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
             </svg>
-            Login dengan Google
+            Login
           </a>
         </li>
       {% endif %}
@@ -287,7 +286,7 @@
 </main>
 
 <footer class="footer">
-  <p>Tugas 2 — Authentication &amp; Authorization &nbsp;|&nbsp; Pengantar Keamanan Perangkat Lunak Genap 2025/2026</p>
+  <p>Mie Ayam Bakso &nbsp;|&nbsp; Pengantar Keamanan Perangkat Lunak Genap 2025/2026</p>
 </footer>
 
 </body>

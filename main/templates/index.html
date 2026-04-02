@@ -31,7 +31,7 @@
   .hero p.subtitle {
     font-size:    1.05rem;
     color:        rgba(0,0,0,.55);
-    max-width:    500px;
+    /* max-width:    500px; */
     margin:       0 auto 1.8rem;
   }
   .auth-notice {
@@ -45,7 +45,7 @@
     padding:        .9rem 1.4rem;
     font-size:      .9rem;
     color:          rgba(0,0,0,.6);
-    max-width:      480px;
+    max-width:      560px;
     margin:         0 auto 2rem;
   }
   .auth-notice.member  { background:#ede9fe; border-color:var(--primary); color:var(--primary); }
@@ -230,24 +230,24 @@
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-badge">🎓 Tugas 2 — Keamanan Perangkat Lunak</div>
+  <div class="hero-badge">Tugas Kelompok 2 — PKPL B</div>
   <h1>Authentication &amp; Authorization</h1>
   <p class="subtitle">Website biodata kelompok dengan implementasi OAuth 2.0 Google &amp; role-based access control.</p>
 
   {% if user.is_authenticated %}
     {% if is_member %}
       <div class="auth-notice member">
-        🛡️ Kamu login sebagai <strong>anggota kelompok</strong>. Kamu bisa mengubah tampilan!
+        Kamu login sebagai <strong>anggota kelompok</strong>. Kamu bisa mengubah tampilan!
       </div>
-      <a href="{% url 'customize' %}" class="btn btn-primary">🎨 Kustomisasi Tampilan</a>
+      <a href="{% url 'customize' %}" class="btn btn-primary">Kustomisasi Tampilan</a>
     {% else %}
       <div class="auth-notice logged">
-        ✅ Login sebagai <strong>{{ user.email }}</strong> — bukan anggota kelompok.
+        Login sebagai <strong>{{ user.email }}</strong> — bukan anggota kelompok.
       </div>
     {% endif %}
   {% else %}
     <div class="auth-notice">
-      🔒 Login dengan akun Google anggota kelompok untuk mengubah tampilan.
+      Login dengan akun Google anggota kelompok untuk mengubah tampilan.
     </div>
     <a href="{% url 'socialaccount_signup' %}" class="btn btn-google">
       <svg viewBox="0 0 24 24" width="18" height="18">
@@ -262,7 +262,7 @@
 </section>
 
 <!-- INFO KELOMPOK -->
-<section style="margin-bottom:2.5rem;">
+<!-- <section style="margin-bottom:2.5rem;">
   <h2 class="section-title">📋 Info Kelompok</h2>
   <div class="info-grid">
     <div class="info-item">
@@ -282,11 +282,11 @@
       <div class="info-value">Authentication &amp; Authorization</div>
     </div>
   </div>
-</section>
+</section> -->
 
 <!-- ANGGOTA -->
 <section style="margin-bottom:2.5rem;">
-  <h2 class="section-title">👥 Anggota Kelompok</h2>
+  <h2 class="section-title">Anggota Kelompok</h2>
   <div class="members-grid">
 
     <div class="member-card">
@@ -321,11 +321,19 @@
       <p class="member-desc">Deskripsi / kontribusi anggota.</p>
     </div>
 
+    <div class="member-card">
+      <div class="member-avatar">E</div>
+      <div class="member-name">Nama Anggota 5</div>
+      <div class="member-npm">2106XXXXXXX</div>
+      <span class="member-role role-anggota">Anggota</span>
+      <p class="member-desc">Deskripsi / kontribusi anggota.</p>
+    </div>
+
   </div>
 </section>
 
 <!-- TECH STACK -->
-<section style="margin-bottom:2.5rem;">
+<!-- <section style="margin-bottom:2.5rem;">
   <h2 class="section-title">🛠️ Tech Stack</h2>
   <div class="tech-grid">
     <div class="tech-chip">🐍 Python 3.12</div>
@@ -336,10 +344,10 @@
     <div class="tech-chip">🗄️ SQLite</div>
     <div class="tech-chip">🎨 Pure CSS</div>
   </div>
-</section>
+</section> -->
 
 <!-- ALUR OAUTH -->
-<section style="margin-bottom:2.5rem;">
+<!-- <section style="margin-bottom:2.5rem;">
   <h2 class="section-title">🔄 Alur OAuth 2.0</h2>
   <div class="flow-steps">
     <div class="flow-step">
@@ -385,12 +393,12 @@
       </div>
     </div>
   </div>
-</section>
+</section> -->
 
 <!-- CTA -->
 {% if not user.is_authenticated %}
 <div class="cta-box">
-  <h3>🔐 Mau Ubah Tampilan Website?</h3>
+  <h3>Mau Ubah Tampilan Website?</h3>
   <p>Login dengan akun Google yang terdaftar sebagai anggota kelompok untuk mengakses fitur kustomisasi.</p>
   <a href="{% url 'google_login' %}" class="btn btn-primary">Login dengan Google</a>
 </div>

@@ -93,8 +93,7 @@
       <p>Personalisasi website sesuai identitas kelompok Anda.</p>
     </div>
 
-    <form method="POST">
-      {% csrf_token %}
+    <form id="themeForm">
       
       <div class="form-group">
         <label>Warna Utama (Primary)</label>
@@ -163,4 +162,48 @@
     Terakhir diubah oleh: <strong>{{ site_cfg.last_modified_by|default:"System" }}</strong> pada {{ site_cfg.updated_at|date:"d M Y, H:i" }}
   </div>
 </div>
+
+<script>
+  document.getElementById('themeForm').addEventListener('submit', function(e) {
+    e.preventDefault(); 
+    
+    const formData = new FormData(this);
+    const data = Object.fromEntries(formData.entries());
+    const token = "{{ access_token }}"; 
+    
+    fetch('/api/update-theme/', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}` 
+        },
+        body: JSON.stringify(data)
+    })
+    .then(response => response.json())
+    .then(result => {
+        if (result.error) {
+            // Menggunakan fungsi showToast dari base.html
+            showToast('error', result.error);
+        } else {
+            showToast('success', result.message);
+            // Reload setelah pop-up muncul sebentar
+            setTimeout(() => {
+                window.location.reload(); 
+            }, 1200);
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        showToast('error', 'Terjadi kesalahan pada sistem.');
+    });
+  });
+
+  // Sinkronisasi input teks dengan color picker
+  const colorInputs = document.querySelectorAll('input[type="color"]');
+  colorInputs.forEach(input => {
+      input.addEventListener('input', function() {
+          this.nextElementSibling.value = this.value.toUpperCase();
+      });
+  });
+</script>
 {% endblock %}

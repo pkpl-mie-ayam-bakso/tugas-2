@@ -7,3 +7,5 @@ PyJWT
 cryptography
 django-ratelimit
 django-csp
+djangorestframework
+djangorestframework-simplejwt
